@@ -16,7 +16,7 @@
     console.log(computerSelection)
     let playerSelection = prompt('Please type in "Rock", "Paper", or "Scissors"!')
 
-    function game() {
+    function game(playerSelection, computerSelection) {
       if (playerSelection == "Rock" && computerSelection == "Paper") {
         return "You lose, sucka! Paper beats Rock."}
       else if (playerSelection == "Paper" && computerSelection == "Paper") {
@@ -38,6 +38,7 @@
       else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
         return "Nice try, but it's just a tie!"}
     }
+    console.log(game(playerSelection, computerSelection))
   </script>
 </body>
 </html>
