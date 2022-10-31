@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Korg's Paper Rebellion</title>
+</head>
+<body>
+  <script>
+    let array = ["Rock", "Paper", "Scissors"]
+    function getComputerChoice(array) {
+      const randomIndex = Math.floor(Math.random() * array.length);
+      const item = array[randomIndex];
+      return item;
+    }
+    const computerSelection = getComputerChoice(array);
+    console.log(computerSelection)
+    let playerSelection = prompt('Please type in "Rock", "Paper", or "Scissors"!')
+    if (playerSelection == "Rock" && computerSelection == "Paper") {
+      return "You lose, sucka! Paper beats Rock"}
+  </script>
+</body>
+</html>
