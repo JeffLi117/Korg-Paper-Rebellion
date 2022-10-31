@@ -12,11 +12,18 @@
       const item = array[randomIndex];
       return item;
     }
-    const computerSelection = getComputerChoice(array);
-    console.log(computerSelection)
-    let response = prompt('Please type in "Rock", "Paper", or "Scissors"!')
+    
     function caseChange(response) {
       return response.charAt(0).toUpperCase() + response.slice(1).toLowerCase()}
+
+    function thegame(playerSelection, computerSelection) {
+      //dostuff
+    }
+    
+    let computerSelection = getComputerChoice(array);
+    console.log(computerSelection)
+    let response = prompt('Please type in "Rock", "Paper", or "Scissors"!')
+    
     let playerSelection = caseChange(response)
     
     function thegame(playerSelection, computerSelection) {
@@ -51,7 +58,20 @@
           return "I'm not sure what you typed there, bucko."}
     }
     console.log(thegame(playerSelection, computerSelection))
-      
+
+    for (i = 0, i < 5; i++) {
+      //Things to run 5 times
+      //getComputerChoice 5 separate times
+      computerSelection = getComputerChoice(array)
+      //Prompt user for choices 5 times -> change case of input every time
+      userInput = prompt('Please type in "Rock", "Paper", or "Scissors"!');
+      playerSelection = caseChange(userInput)
+      console.log(computerSelection);
+      console.log(playerSelection);
+      //Determine the winner of thegame function
+      console.log(thegame(playerSelection, computerSelection));
+    }
+   
   </script>
 </body>
 </html>
