@@ -17,16 +17,6 @@
       return response.charAt(0).toUpperCase() + response.slice(1).toLowerCase()}
 
     function thegame(playerSelection, computerSelection) {
-      //dostuff
-    }
-    
-    let computerSelection = getComputerChoice(array);
-    console.log(computerSelection)
-    let response = prompt('Please type in "Rock", "Paper", or "Scissors"!')
-    
-    let playerSelection = caseChange(response)
-    
-    function thegame(playerSelection, computerSelection) {
       if (playerSelection == "Rock") {
         if (computerSelection == "Paper") {
           return "You lose, sucka! Paper beats Rock."}
@@ -57,7 +47,6 @@
       else {
           return "I'm not sure what you typed there, bucko."}
     }
-    console.log(thegame(playerSelection, computerSelection))
 
     for (i = 0, i < 5; i++) {
       //Things to run 5 times
