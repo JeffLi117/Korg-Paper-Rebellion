@@ -17,28 +17,35 @@
     let playerSelection = prompt('Please type in "Rock", "Paper", or "Scissors"!')
 
     function game(playerSelection, computerSelection) {
-      if (playerSelection == "Rock" && computerSelection == "Paper") {
-        return "You lose, sucka! Paper beats Rock."}
-      else if (playerSelection == "Paper" && computerSelection == "Paper") {
-        return "Nice try, but it's just a tie!"}
-      else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-        return "Woohoo! You win!"}
+      if (playerSelection == "Rock") {
+        if (computerSelection == "Paper") {
+          return "You lose, sucka! Paper beats Rock."}
+        else if (computerSelection == "Scissors") {
+          return "Woohoo! You win!"}
+        else {
+          return "Nice try, but it's just a tie!"}
+      }
 
-      else if (playerSelection == "Rock" && computerSelection == "Rock") {
-        return "Nice try, but it's just a tie!"}
-      else if (playerSelection == "Paper" && computerSelection == "Rock") {
-        return "Woohoo! You win!"}
-      else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-        return "You lose, sucka! Rock beats Scissors."}
+      if (playerSelection == "Paper") {
+        if (computerSelection == "Scissors") {
+          return "You lose, sucka! Scissors beats Paper."}
+        else if (computerSelection == "Rock") {
+          return "Woohoo! You win!"}
+        else {
+          return "Nice try, but it's just a tie!"}
+      }
 
-      else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-        return "Woohoo! You win!"}
-      else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-        return "You lose, sucka! Scissors beats Paper."}
-      else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
-        return "Nice try, but it's just a tie!"}
+      if (playerSelection == "Scissors") {
+        if (computerSelection == "Rock") {
+          return "You lose, sucka! Rock beats Scissors."}
+        else if (computerSelection == "Paper") {
+          return "Woohoo! You win!"}
+        else {
+          return "Nice try, but it's just a tie!"}
+      }
     }
     console.log(game(playerSelection, computerSelection))
+      
   </script>
 </body>
 </html>
