@@ -13,14 +13,22 @@
       return item;
     }
     
-    function caseChange(response) {
-      return response.charAt(0).toUpperCase() + response.slice(1).toLowerCase()}
+    let computerSelection = getComputerChoice(array);
+    
+    function caseChange(userInput) {
+      return userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase()}
+    let playerSelection = caseChange(userInput)
+
+    let computerWins = 0;
+    let playerWins = 0;
 
     function thegame(playerSelection, computerSelection) {
       if (playerSelection == "Rock") {
         if (computerSelection == "Paper") {
+          computerWins++;
           return "You lose, sucka! Paper beats Rock."}
         else if (computerSelection == "Scissors") {
+          playerWins++;
           return "Woohoo! You win!"}
         else {
           return "Nice try, but it's just a tie!"}
@@ -28,8 +36,10 @@
 
       if (playerSelection == "Paper") {
         if (computerSelection == "Scissors") {
+          computerWins++;
           return "You lose, sucka! Scissors beats Paper."}
         else if (computerSelection == "Rock") {
+          playerWins++;
           return "Woohoo! You win!"}
         else {
           return "Nice try, but it's just a tie!"}
@@ -37,8 +47,10 @@
 
       if (playerSelection == "Scissors") {
         if (computerSelection == "Rock") {
+          computerWins++;
           return "You lose, sucka! Rock beats Scissors."}
         else if (computerSelection == "Paper") {
+          playerWins++;
           return "Woohoo! You win!"}
         else {
           return "Nice try, but it's just a tie!"}
@@ -48,18 +60,24 @@
           return "I'm not sure what you typed there, bucko."}
     }
 
-    for (i = 0, i < 5; i++) {
+    
+    
+    for (i = 0; i < 5; i++) {
       //Things to run 5 times
       //getComputerChoice 5 separate times
-      computerSelection = getComputerChoice(array)
+      compLoop = getComputerChoice(array)
       //Prompt user for choices 5 times -> change case of input every time
       userInput = prompt('Please type in "Rock", "Paper", or "Scissors"!');
-      playerSelection = caseChange(userInput)
-      console.log(computerSelection);
-      console.log(playerSelection);
+      playLoop = caseChange(userInput)
+      console.log(compLoop);
+      console.log(playLoop);
       //Determine the winner of thegame function
-      console.log(thegame(playerSelection, computerSelection));
+      console.log(thegame(playLoop, compLoop));
     }
+
+
+    // Plays are done, compare # of wins   
+    
    
   </script>
 </body>
