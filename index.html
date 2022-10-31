@@ -15,8 +15,29 @@
     const computerSelection = getComputerChoice(array);
     console.log(computerSelection)
     let playerSelection = prompt('Please type in "Rock", "Paper", or "Scissors"!')
-    if (playerSelection == "Rock" && computerSelection == "Paper") {
-      return "You lose, sucka! Paper beats Rock"}
+
+    function game() {
+      if (playerSelection == "Rock" && computerSelection == "Paper") {
+        return "You lose, sucka! Paper beats Rock."}
+      else if (playerSelection == "Paper" && computerSelection == "Paper") {
+        return "Nice try, but it's just a tie!"}
+      else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+        return "Woohoo! You win!"}
+
+      else if (playerSelection == "Rock" && computerSelection == "Rock") {
+        return "Nice try, but it's just a tie!"}
+      else if (playerSelection == "Paper" && computerSelection == "Rock") {
+        return "Woohoo! You win!"}
+      else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+        return "You lose, sucka! Rock beats Scissors."}
+
+      else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+        return "Woohoo! You win!"}
+      else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+        return "You lose, sucka! Scissors beats Paper."}
+      else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
+        return "Nice try, but it's just a tie!"}
+    }
   </script>
 </body>
 </html>
