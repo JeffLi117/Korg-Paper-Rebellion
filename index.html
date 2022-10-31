@@ -14,9 +14,12 @@
     }
     const computerSelection = getComputerChoice(array);
     console.log(computerSelection)
-    let playerSelection = prompt('Please type in "Rock", "Paper", or "Scissors"!')
-
-    function game(playerSelection, computerSelection) {
+    let response = prompt('Please type in "Rock", "Paper", or "Scissors"!')
+    function caseChange(response) {
+      return response.charAt(0).toUpperCase() + response.slice(1).toLowerCase()}
+    let playerSelection = caseChange(response)
+    
+    function thegame(playerSelection, computerSelection) {
       if (playerSelection == "Rock") {
         if (computerSelection == "Paper") {
           return "You lose, sucka! Paper beats Rock."}
@@ -43,8 +46,11 @@
         else {
           return "Nice try, but it's just a tie!"}
       }
+
+      else {
+          return "I'm not sure what you typed there, bucko."}
     }
-    console.log(game(playerSelection, computerSelection))
+    console.log(thegame(playerSelection, computerSelection))
       
   </script>
 </body>
