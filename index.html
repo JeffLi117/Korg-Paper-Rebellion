@@ -64,13 +64,24 @@
       //Prompt user for choices 5 times -> change case of input every time
       userInput = prompt('Please type in "Rock", "Paper", or "Scissors"!');
       playerSelection = caseChange(userInput)
-      console.log(computerSelection);
-      console.log(playerSelection);
+      console.log("The computer chose " + computerSelection + " and you chose " + playerSelection + ".");
       //Determine the winner of thegame function
-      console.log(thegame(playerSelection, computerSelection));
+      console.log(thegame(playerSelection, computerSelection) + " The current score is computer: " + computerWins + " to player: " + playerWins + ".");
     }
-
-    console.log("Your score: " + playerWins + " vs computer score: " + computerWins);
+    
+    function whoWins(playerWins, computerWins) {
+      if (playerWins > computerWins) {
+        return "You beat the computer! Humanity is still safe from machine overlords."
+      }
+      else if (computerWins > playerWins) {
+        return "Oh no! The computer won and now all of humanity is doomed. Get to the choppa!"
+      }
+      else if (computerWins == playerWins) {
+        return "It's a draw! ¯\_(ツ)_/¯"
+      }
+    }
+    
+    console.log(whoWins(playerWins, computerWins));
   </script>
 </body>
 </html>
