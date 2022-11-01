@@ -1,1 +1,2 @@
 # Korg-Paper-Rebellion
+This is a small rock, paper, scissors game that I made while studying on The Odin Project. Currently it only plays within the console but hopefully I'll be able to make it a little more intricate. Maybe add some HTML/CSS? Who knows! 
