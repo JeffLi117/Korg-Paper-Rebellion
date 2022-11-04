@@ -120,22 +120,40 @@
 
     btnRock.addEventListener('click', () => {
       playerSelection = btnRock.textContent; computerSelection = getComputerChoice(array);
-      gameResults.textContent = (thegame(playerSelection, computerSelection))
+      gameResults.textContent = (thegame(playerSelection, computerSelection));
+      if (gameResults.textContent === "You win! Woohoo!") {
+        playerWins++;
+      }
+      else if (gameResults.textContent === "You lose, sucka!") {
+        computerWins++;
+      }
     });
 
     btnPaper.addEventListener('click', () => {
       playerSelection = btnPaper.textContent; computerSelection = getComputerChoice(array);
-      gameResults.textContent = (thegame(playerSelection, computerSelection))
+      gameResults.textContent = (thegame(playerSelection, computerSelection));
+      if (gameResults.textContent === "You win! Woohoo!") {
+        playerWins++;
+      }
+      else if (gameResults.textContent === "You lose, sucka!") {
+        computerWins++;
+      }
     })
 
     btnScissors.addEventListener('click', () => {
       playerSelection = btnScissors.textContent; computerSelection = getComputerChoice(array);
       gameResults.textContent = (thegame(playerSelection, computerSelection));
+      if (gameResults.textContent === "You win! Woohoo!") {
+        playerWins++;
+      }
+      else if (gameResults.textContent === "You lose, sucka!") {
+        computerWins++;
+      }
     })
 
     const score = document.createElement('score');
     score.classList.add('score');
-    score.textContent = "The current score is:"
+    score.textContent = `The current score is: `
 
     const gameWinner = document.createElement('winner');
     gameWinner.classList.add('gameWinner');
@@ -146,9 +164,6 @@
     results.appendChild(score);
     results.appendChild(document.createElement("br"));
     results.appendChild(gameWinner);
-
-console.log(playerWins)
-console.log(computerWins)
 
     /*function tallyScore(playerWins, computerWins) {
       scoreWindow.innerText = `Player ${playerWins} : Computer ${computerWins}`;
