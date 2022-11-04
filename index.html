@@ -5,70 +5,67 @@
   <title>Korg's Paper Rebellion</title>
 </head>
 <body>
+  <div id="container"></div>
+  <br>
+
+  <button id="btnR"></button>
+  <button id ="btnP"></button>
+  <button id ="btnS"></button>
+
+  <br><br>
+  <div id="results"></div>
+  
+  <div class="scores">
+    <span id="compPointsNum">0</span> : <span id="playerPointsNum">0</span>
+  </div>
   <script>
+    
     let array = ["Rock", "Paper", "Scissors"]
     function getComputerChoice(array) {
       const randomIndex = Math.floor(Math.random() * array.length);
       const item = array[randomIndex];
       return item;
     }
-    
-    function caseChange(response) {
-      return response.charAt(0).toUpperCase() + response.slice(1).toLowerCase()}
 
-    let computerWins = 0;
-    let playerWins = 0;
+    let playerWins = + document.getElementById("playerPointsNum").innerHTML;
+    let computerWins = + document.getElementById("compPointsNum").innerHTML;
     
-     function thegame(playerSelection, computerSelection) {
+    
+    function thegame() {
       if (playerSelection == "Rock") {
         if (computerSelection == "Paper") {
           computerWins++;
-          return "You lose, sucka! Paper beats Rock."}
+          return "You lose, sucka!"}
         else if (computerSelection == "Scissors") {
           playerWins++;
-          return "Woohoo! You win!"}
+          return "You win! Woohoo!"}
         else {
-          return "Nice try, but it's just a tie!"}
+          return "Nice try, but it's a tie!"}
       }
 
       if (playerSelection == "Paper") {
         if (computerSelection == "Scissors") {
           computerWins++;
-          return "You lose, sucka! Scissors beats Paper."}
+          return "You lose, sucka!"}
         else if (computerSelection == "Rock") {
           playerWins++;
-          return "Woohoo! You win!"}
+          return "You win! Woohoo!"}
         else {
-          return "Nice try, but it's just a tie!"}
+          return "Nice try, but it's a tie!"}
       }
 
       if (playerSelection == "Scissors") {
         if (computerSelection == "Rock") {
           computerWins++;
-          return "You lose, sucka! Rock beats Scissors."}
+          return "You lose, sucka!"}
         else if (computerSelection == "Paper") {
           playerWins++;
-          return "Woohoo! You win!"}
+          return "You win! Woohoo!"}
         else {
-          return "Nice try, but it's just a tie!"}
+          return "Nice try, but it's a tie!"}
       }
-
-      else {
-          return "I'm not sure what you typed there, bucko."}
     }
 
-    for (i = 0; i < 5; i++) {
-      //Things to run 5 times
-      //getComputerChoice 5 separate times
-      computerSelection = getComputerChoice(array)
-      //Prompt user for choices 5 times -> change case of input every time
-      userInput = prompt('Please type in "Rock", "Paper", or "Scissors"!');
-      playerSelection = caseChange(userInput)
-      console.log("The computer chose " + computerSelection + " and you chose " + playerSelection + ".");
-      //Determine the winner of thegame function
-      console.log(thegame(playerSelection, computerSelection) + " The current score is computer: " + computerWins + " to player: " + playerWins + ".");
-    }
-    
     function whoWins(playerWins, computerWins) {
       if (playerWins > computerWins) {
         return "You beat the computer! Humanity is still safe from machine overlords."
@@ -77,11 +74,95 @@
         return "Oh no! The computer won and now all of humanity is doomed. Get to the choppa!"
       }
       else if (computerWins == playerWins) {
-        return "It's a draw! ¯\_(ツ)_/¯"
+        return "Somehow it's a draw! This shouldn't be happening... ¯\_(ツ)_/¯"
       }
     }
+
+
+
+    /*while (playerWins <5 || computerWins < 5) {
+      //Determine the winner of thegame function
+      alert = whoWins(playerWins, computerWins);;
+    }
+
+     loop game until playerWins == 5 or computerWins == 5
+    display results of function whoWins once playerWins == 5 or computerWins == 5
+
+    while (playerWins < 5 || computerWins < 5) {
+      
+    }*/
     
-    console.log(whoWins(playerWins, computerWins));
+
+    // console.log(whoWins(playerWins, computerWins));
+
+    const container = document.querySelector('#container');
+    const content = document.createElement('div');
+    content.classList.add('content');
+    content.textContent = 'To play in Korg\'s game, please pick from one of the following:';
+
+    container.appendChild(content);
+    
+    const btnRock = document.querySelector('#btnR');
+    btnRock.textContent = 'Rock';
+
+    const btnPaper = document.querySelector('#btnP');
+    btnPaper.textContent = 'Paper';
+
+    const btnScissors = document.querySelector('#btnS');
+    btnScissors.textContent = 'Scissors';
+
+    const gameResults = document.createElement('results');
+    gameResults.classList.add('gameResults');
+    gameResults.textContent = "Your result will be displayed here"
+    
+    let scoreWindow = document.querySelector('.scores');
+    scoreWindow.innerHTML = playerWins + " : " + computerWins;
+
+    btnRock.addEventListener('click', () => {
+      playerSelection = btnRock.textContent; computerSelection = getComputerChoice(array);
+      gameResults.textContent = (thegame(playerSelection, computerSelection))
+    });
+
+    btnPaper.addEventListener('click', () => {
+      playerSelection = btnPaper.textContent; computerSelection = getComputerChoice(array);
+      gameResults.textContent = (thegame(playerSelection, computerSelection))
+    })
+
+    btnScissors.addEventListener('click', () => {
+      playerSelection = btnScissors.textContent; computerSelection = getComputerChoice(array);
+      gameResults.textContent = (thegame(playerSelection, computerSelection));
+    })
+
+    const score = document.createElement('score');
+    score.classList.add('score');
+    score.textContent = "The current score is:"
+
+    const gameWinner = document.createElement('winner');
+    gameWinner.classList.add('gameWinner');
+    gameWinner.textContent = ""
+
+    results.appendChild(gameResults);
+    results.appendChild(document.createElement("br"));
+    results.appendChild(score);
+    results.appendChild(document.createElement("br"));
+    results.appendChild(gameWinner);
+
+console.log(playerWins)
+console.log(computerWins)
+
+    /*function tallyScore(playerWins, computerWins) {
+      scoreWindow.innerText = `Player ${playerWins} : Computer ${computerWins}`;
+    }
+
+    tallyScore();
+
+    while (playerWins <= 5 || computerWins <= 5) {
+      if (playerWins == 5 || computerWins == 5) {
+        alert(whoWins());
+      } else {tallyScore()}
+    }*/
+  
+
   </script>
 </body>
 </html>
