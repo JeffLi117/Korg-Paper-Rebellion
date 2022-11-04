@@ -16,7 +16,8 @@
   <div id="results"></div>
   
   <div class="scores">
-    <span id="compPointsNum">0</span> : <span id="playerPointsNum">0</span>
+    Computer <span id="compCount">0</span> 
+    : Player <span id="playerCount">0</span>
   </div>
   <script>
     
@@ -27,10 +28,11 @@
       return item;
     }
 
-    let playerWins = + document.getElementById("playerPointsNum").innerHTML;
-    let computerWins = + document.getElementById("compPointsNum").innerHTML;
-    
-    
+    let playerWins = 0;
+    let computerWins = 0;
+    let compCount = 0;
+    let playerCount = 0;
+  
     function thegame() {
       if (playerSelection == "Rock") {
         if (computerSelection == "Paper") {
@@ -115,40 +117,33 @@
     gameResults.classList.add('gameResults');
     gameResults.textContent = "Your result will be displayed here"
     
-    let scoreWindow = document.querySelector('.scores');
-    scoreWindow.innerHTML = playerWins + " : " + computerWins;
+    const textHolder1 = document.getElementById('compCount');
+    const textHolder2 = document.getElementById('playerCount');
+    textHolder1.innerHTML = compCount;
+    textHolder2.innerHTML = playerCount;
 
     btnRock.addEventListener('click', () => {
-      playerSelection = btnRock.textContent; computerSelection = getComputerChoice(array);
+      playerSelection = btnRock.textContent; 
+      computerSelection = getComputerChoice(array);
       gameResults.textContent = (thegame(playerSelection, computerSelection));
-      if (gameResults.textContent === "You win! Woohoo!") {
-        playerWins++;
-      }
-      else if (gameResults.textContent === "You lose, sucka!") {
-        computerWins++;
+      console.log(gameResults.textContent)
+      if (gameResults.textContent == "You win! Woohoo!") {
+        textHolder2.innerHTML = playerCount++;
+      } else if (gameResults.textContent == "You lose, sucka!") {
+        textHolder1.innerHTML = compCount++;
       }
     });
 
     btnPaper.addEventListener('click', () => {
-      playerSelection = btnPaper.textContent; computerSelection = getComputerChoice(array);
+      playerSelection = btnPaper.textContent; 
+      computerSelection = getComputerChoice(array);
       gameResults.textContent = (thegame(playerSelection, computerSelection));
-      if (gameResults.textContent === "You win! Woohoo!") {
-        playerWins++;
-      }
-      else if (gameResults.textContent === "You lose, sucka!") {
-        computerWins++;
-      }
     })
 
     btnScissors.addEventListener('click', () => {
-      playerSelection = btnScissors.textContent; computerSelection = getComputerChoice(array);
+      playerSelection = btnScissors.textContent; 
+      computerSelection = getComputerChoice(array);
       gameResults.textContent = (thegame(playerSelection, computerSelection));
-      if (gameResults.textContent === "You win! Woohoo!") {
-        playerWins++;
-      }
-      else if (gameResults.textContent === "You lose, sucka!") {
-        computerWins++;
-      }
     })
 
     const score = document.createElement('score');
