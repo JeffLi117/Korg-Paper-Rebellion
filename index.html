@@ -33,6 +33,7 @@
     let compCount = 0;
     let playerCount = 0;
   
+    // original logic for player vs computer RPS
     function thegame() {
       if (playerSelection == "Rock") {
         if (computerSelection == "Paper") {
@@ -68,14 +69,15 @@
       }
     }
 
-    function whoWins(playerWins, computerWins) {
-      if (playerWins > computerWins) {
+    // check for winner
+    function whoWins(playerCount, compCount) {
+      if (textHolder2.innerHTML > textHolder1.innerHTML) {
         return "You beat the computer! Humanity is still safe from machine overlords."
       }
-      else if (computerWins > playerWins) {
+      else if (textHolder1.innerHTML > textHolder2.innerHTML) {
         return "Oh no! The computer won and now all of humanity is doomed. Get to the choppa!"
       }
-      else if (computerWins == playerWins) {
+      else if (textHolder1.innerHTML == textHolder2.innerHTML) {
         return "Somehow it's a draw! This shouldn't be happening... ¯\_(ツ)_/¯"
       }
     }
@@ -126,11 +128,18 @@
       playerSelection = btnRock.textContent; 
       computerSelection = getComputerChoice(array);
       gameResults.textContent = (thegame(playerSelection, computerSelection));
-      console.log(gameResults.textContent)
-      if (gameResults.textContent == "You win! Woohoo!") {
-        textHolder2.innerHTML = playerCount++;
+      if (textHolder2.innerHTML == 5 || textHolder1.innerHTML == 5) {
+        alert(whoWins());
+      } else if (gameResults.textContent == "You win! Woohoo!") {
+        textHolder2.innerHTML = ++playerCount;
+          if (textHolder2.innerHTML == 5 || textHolder1.innerHTML == 5) {
+          alert(whoWins());
+          }
       } else if (gameResults.textContent == "You lose, sucka!") {
-        textHolder1.innerHTML = compCount++;
+        textHolder1.innerHTML = ++compCount;
+          if (textHolder2.innerHTML == 5 || textHolder1.innerHTML == 5) {
+          alert(whoWins());
+          }
       }
     });
 
@@ -138,38 +147,64 @@
       playerSelection = btnPaper.textContent; 
       computerSelection = getComputerChoice(array);
       gameResults.textContent = (thegame(playerSelection, computerSelection));
+      if (gameResults.textContent == "You win! Woohoo!") {
+        textHolder2.innerHTML = ++playerCount; 
+          if (textHolder2.innerHTML == 5 || textHolder1.innerHTML == 5) {
+          alert(whoWins());
+          } // checks score tally after each click to decide if one score has met winning conditions
+      } else if (gameResults.textContent == "You lose, sucka!") {
+        textHolder1.innerHTML = ++compCount;
+          if (textHolder2.innerHTML == 5 || textHolder1.innerHTML == 5) {
+          alert(whoWins());
+          }
+      }
     })
 
     btnScissors.addEventListener('click', () => {
       playerSelection = btnScissors.textContent; 
       computerSelection = getComputerChoice(array);
       gameResults.textContent = (thegame(playerSelection, computerSelection));
-    })
+      if (textHolder2.innerHTML == 5 || textHolder1.innerHTML == 5) {
+        alert(whoWins());
+      } else if (gameResults.textContent == "You win! Woohoo!") {
+        textHolder2.innerHTML = ++playerCount;
+          if (textHolder2.innerHTML == 5 || textHolder1.innerHTML == 5) {
+          alert(whoWins());
+          }
+      } else if (gameResults.textContent == "You lose, sucka!") {
+        textHolder1.innerHTML = ++compCount;
+          if (textHolder2.innerHTML == 5 || textHolder1.innerHTML == 5) {
+          alert(whoWins());
+          }
+      }
+    }) 
 
     const score = document.createElement('score');
     score.classList.add('score');
     score.textContent = `The current score is: `
 
-    const gameWinner = document.createElement('winner');
-    gameWinner.classList.add('gameWinner');
-    gameWinner.textContent = ""
+    function declareWinner(playerCount, compCount) {
+      if (playerCount == 5 || compCount == 5) {
+        alert(whoWins());
+      }
+    }
+    /*let i = 0
+    
+    do {
+      if (playerCount == 5 || compCount == 5) {
+        alert(whoWins());
+      };
+      i++;
+    } while (i < 10000)
+
+    declareWinner(textHolder2.innerHTML, textHolder1.innerHTML);*/
 
     results.appendChild(gameResults);
     results.appendChild(document.createElement("br"));
     results.appendChild(score);
-    results.appendChild(document.createElement("br"));
-    results.appendChild(gameWinner);
 
     /*function tallyScore(playerWins, computerWins) {
       scoreWindow.innerText = `Player ${playerWins} : Computer ${computerWins}`;
-    }
-
-    tallyScore();
-
-    while (playerWins <= 5 || computerWins <= 5) {
-      if (playerWins == 5 || computerWins == 5) {
-        alert(whoWins());
-      } else {tallyScore()}
     }*/
   
 
