@@ -2,26 +2,16 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
   <title>Korg's Paper Rebellion</title>
 </head>
 <body>
   <div id="container"></div>
   <br>
-  <div class="buttonLine">
-    <div class="sections">
-      <button id="btnR"></button>
-      <img src="https://cdn.pixabay.com/photo/2014/12/22/00/03/rock-576682_960_720.png" alt="pile of rocks" id="imageRock" SameSite=None>
-    </div>
-    <div class="sections">
-      <button id ="btnP"></button>
-      <img src="https://cdn.pixabay.com/photo/2013/07/12/19/00/certificate-154169_960_720.png" alt="scroll" id="imagePaper" SameSite=None>
-    </div>
-    <div class="sections">
-      <button id ="btnS"></button>
-      <img src="https://cdn.pixabay.com/photo/2017/02/01/10/46/avatar-2029577_960_720.png" alt="cartoon scissors" id="imageScissors" SameSite=None>
-    </div>
-  </div>
+
+  <button id="btnR"></button>
+  <button id ="btnP"></button>
+  <button id ="btnS"></button>
+
   <br><br>
   <div id="results"></div>
   
@@ -29,12 +19,6 @@
     Computer <span id="compCount">0</span> 
     : Player <span id="playerCount">0</span>
   </div>
-
-  <footer id="footer">
-    <p>
-      Copyright © 2022 <a href="https://github.com/JeffLi117" target="_blank">JeffLi117 <span><img src="https://github.com/JeffLi117/Math-Is-Hard/blob/main/GitHub-Mark-32px.png?raw=true" alt="Github favicon"></span></a>
-    </p>
-  </footer>
   <script>
     
     let array = ["Rock", "Paper", "Scissors"]
@@ -124,7 +108,6 @@
     
     const btnRock = document.querySelector('#btnR');
     btnRock.textContent = 'Rock';
-
 
     const btnPaper = document.querySelector('#btnP');
     btnPaper.textContent = 'Paper';
