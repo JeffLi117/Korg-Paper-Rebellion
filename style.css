@@ -1,0 +1,74 @@
+body {
+    vertical-align: top;
+    text-align: center;
+    width: 100%;
+    font-size: 2em;
+}
+
+.buttonLine {
+    display: flex;
+    justify-content: center;
+    gap: 2.5em;
+}
+
+.sections {
+    max-width: 3em;
+}
+
+#imageRock, #imagePaper, #imageScissors {
+    width: 170px;
+    height: auto;
+}
+
+button {
+    font-size: 0.75em;
+    border-radius: 12px;
+    border: 2px solid black;
+}
+
+.btnR {
+    border: 2px solid rgb(128, 74, 22);
+    border-radius: 8px;
+    background-color: blue;
+}
+
+.btnP {
+    border: 2px solid beige;
+    border-radius: 8px;
+}
+
+.btnS {
+    border: 2px solid rgb(93, 88, 88);
+    border-radius: 8px;
+}
+
+button:hover {
+    color:blue;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 0.5em;
+ }
+
+span {
+    display: inline-block;
+  }
+  
+img {
+    vertical-align:middle;
+}
+
+footer a, a:visited {
+    text-decoration: none;  
+    color: black;
+} 
