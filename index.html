@@ -2,16 +2,27 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
   <title>Korg's Paper Rebellion</title>
 </head>
 <body>
   <div id="container"></div>
   <br>
 
-  <button id="btnR"></button>
-  <button id ="btnP"></button>
-  <button id ="btnS"></button>
-
+  <div class="buttonLine">
+    <div class="sections">
+      <button id="btnR"></button>
+      <img src="https://raw.githubusercontent.com/JeffLi117/Korg-Paper-Rebellion/0eb5e40d61392f92aa8852db0c3720603c44a253/rock.png" alt="pile of rocks" id="imageRock">
+    </div>
+    <div class="sections">
+      <button id ="btnP"></button>
+      <img src="https://github.com/JeffLi117/Korg-Paper-Rebellion/blob/main/scroll.png?raw=true" alt="scroll" id="imagePaper">
+    </div>
+    <div class="sections">
+      <button id ="btnS"></button>
+      <img src="https://github.com/JeffLi117/Korg-Paper-Rebellion/blob/main/scissor.png?raw=true" alt="cartoon scissors" id="imageScissors">
+    </div>
+  </div>
   <br><br>
   <div id="results"></div>
   
@@ -19,6 +30,12 @@
     Computer <span id="compCount">0</span> 
     : Player <span id="playerCount">0</span>
   </div>
+
+  <footer id="footer">
+    <p>
+      Copyright © 2022 <a href="https://github.com/JeffLi117" target="_blank">JeffLi117 <span><img src="https://github.com/JeffLi117/Math-Is-Hard/blob/main/GitHub-Mark-32px.png?raw=true" alt="Github favicon"></span></a>
+    </p>
+  </footer>
   <script>
     
     let array = ["Rock", "Paper", "Scissors"]

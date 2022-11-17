@@ -12,12 +12,17 @@ body {
 }
 
 .sections {
-    max-width: 3em;
+    display: block;
+    max-width: 7em;
 }
 
 #imageRock, #imagePaper, #imageScissors {
     width: 170px;
     height: auto;
+}
+
+#imageRock, #imagePaper {
+    margin-top: 1em;
 }
 
 button {
